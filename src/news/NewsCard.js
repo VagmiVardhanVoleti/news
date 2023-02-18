@@ -15,7 +15,6 @@ const NewsCard = ({ article, variant }) => {
     <Card
       className="card"
       bg={variant.toLowerCase()}
-      key={variant}
       text={variant.toLowerCase() === "light" ? "dark" : "white"}
       onClick={() => handleOnClick(link)}
     >
