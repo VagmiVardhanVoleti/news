@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+
 import NewsCard from "./NewsCard";
 import withLoader from "../hoc/withLoader";
+import { CARD_VARIANTS } from "../constants";
 
 const NewsContainer = (props) => {
   const [newsArticles, setNewsArticiles] = useState([]);
@@ -28,9 +30,10 @@ const NewsContainer = (props) => {
   return (
     <>
       {newsArticles.map((article, index) => {
+        const variantIndex = index % 6;
         return (
-          <div key={index}>
-            <NewsCard article={article} />
+          <div key={index} className="news-container">
+            <NewsCard article={article} variant={CARD_VARIANTS[variantIndex]} />
           </div>
         );
       })}

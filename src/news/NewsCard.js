@@ -1,9 +1,25 @@
 import Card from "react-bootstrap/Card";
+import { parseString } from "../utilities/helper";
 
-const NewsCard = ({ article }) => {
+import "./news-card.css";
+
+const NewsCard = ({ article, variant }) => {
+  const title = parseString(article.title.rendered);
+  const link = article.shortlink;
+
+  const handleOnClick = (url) => {
+    window.open(url, "_blank", "noreferrer");
+  };
+
   return (
-    <Card>
-      <Card.Body>{article.title.rendered}</Card.Body>
+    <Card
+      className="card"
+      bg={variant.toLowerCase()}
+      key={variant}
+      text={variant.toLowerCase() === "light" ? "dark" : "white"}
+      onClick={() => handleOnClick(link)}
+    >
+      <Card.Body>{title}</Card.Body>
     </Card>
   );
 };
