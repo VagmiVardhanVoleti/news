@@ -5,7 +5,7 @@ import NewsContainer from "./news/NewsContainer";
 const App = () => {
   return (
     <div className="App">
-      <h2 className="title">Verdic News Articles</h2>
+      <h2 className="title">Veridic News Articles</h2>
       <NewsContainer />
     </div>
   );
